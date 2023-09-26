@@ -1,0 +1,16 @@
+---
+- name: Copy httpd configuration file
+  copy:
+    src: files/httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+
+- name: Copy index.html file
+  copy:
+    src: files/index.html
+    dest: /var/www/html
+
+- name: Restart Apache
+  service:
+    name: apache
+    state: restarted
+
